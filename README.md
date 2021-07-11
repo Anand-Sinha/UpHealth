@@ -74,8 +74,4 @@ See
 ![Image](https://raw.githubusercontent.com/Anand-Sinha/vault/master/images/Screenshot_20210306_113142_com.android.chrome.jpg)
 ![Image](https://raw.githubusercontent.com/Anand-Sinha/vault/master/images/Screenshot_20210306_113159_com.android.chrome.jpg)
 
-## Contact Us
-- Anand Sinha: <sinhaanand@icloud.com>
-- Anubhav Bansal: <anubhavb11@gmail.com>
-- Sarthak Duggal: <duggal.sarthak12@gmail.com>
 
