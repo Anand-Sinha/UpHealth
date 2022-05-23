@@ -9,4 +9,5 @@ router.get('/signup',viewController.renderSignupPage)
 router.get('/upload',viewController.renderUploadPage)
 router.get('/track',viewController.renderTrackPage)
 router.get('/TC',viewController.renderTCPage)
+router.get('/predict',viewController.renderPredictionPage)
 module.exports = router;
