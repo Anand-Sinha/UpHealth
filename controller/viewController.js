@@ -44,3 +44,12 @@ exports.renderTCPage = catchAsync(async(req,res,next)=>{
     }
 
 })
+
+exports.renderPredictionPage = catchAsync(async(req,res,next)=>{
+    if(!req.cookies.jwt){
+        res.status(200).render('prediction')
+    } else{
+        res.status(200).render('prediction')
+    }
+
+})
