@@ -1,5 +1,5 @@
 const multer = require('multer')
-const StreamrClient = require('streamr-client');
+// const StreamrClient = require('streamr-client');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const Prescription = require('../models/prescriptionModel');
@@ -43,41 +43,41 @@ exports.uploadFile = catchAsync(async (req,res,next)=>{
         path:req.file.filename,
         description:req.body.description
     })
-    const prescriptionWallet = StreamrClient.generateEthereumAccount()
-        console.log(prescriptionWallet)
+    // const prescriptionWallet = StreamrClient.generateEthereumAccount()
+    //     console.log(prescriptionWallet)
 
-    const streamr = new StreamrClient({
-        auth:{
-            privateKey: prescriptionWallet.privateKey
-        },
-        url: 'wss://hack.streamr.network/api/v1/ws',
-        restUrl: 'https://hack.streamr.network/api/v1',        
-    })
-    console.log(streamr)
+    // const streamr = new StreamrClient({
+    //     auth:{
+    //         privateKey: prescriptionWallet.privateKey
+    //     },
+    //     url: 'wss://hack.streamr.network/api/v1/ws',
+    //     restUrl: 'https://hack.streamr.network/api/v1',        
+    // })
+    // console.log(streamr)
 
-    streamr.joinDataUnion(process.env.DU_CONTRACT, process.env.SHARED_SECRET)
-    .then((memberDetails)=>{
-        console.log(memberDetails)
+    // streamr.joinDataUnion(process.env.DU_CONTRACT, process.env.SHARED_SECRET)
+    // .then((memberDetails)=>{
+    //     console.log(memberDetails)
 
-        streamr.getMemberStats(process.env.DU_CONTRACT, prescriptionWallet.address)
-            .then((stats) => {
-                console.log(stats);
-                uploadDataCoinsStats(req.user._id,stats)
-            })
-            .catch((err) => {
-                console.log(err.message);
-            })
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-    .finally(()=>{
-        streamr.publish(process.env.STREAM_ID_PRESCRIPTIONS, { 
-            patientPrescription:prescription
-        })
-        console.log("Data Published");
-    })
-    console.log(prescription)
+    //     streamr.getMemberStats(process.env.DU_CONTRACT, prescriptionWallet.address)
+    //         .then((stats) => {
+    //             console.log(stats);
+    //             uploadDataCoinsStats(req.user._id,stats)
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.message);
+    //         })
+    // })
+    // .catch((err)=>{
+    //     console.log(err)
+    // })
+    // .finally(()=>{
+    //     streamr.publish(process.env.STREAM_ID_PRESCRIPTIONS, { 
+    //         patientPrescription:prescription
+    //     })
+    //     console.log("Data Published");
+    // })
+    // console.log(prescription)
 
     res.redirect('/upload')
     

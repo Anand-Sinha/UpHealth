@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const StreamrClient = require('streamr-client')
+// const StreamrClient = require('streamr-client')
 const { promisify } = require("util");
 const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
@@ -42,37 +42,37 @@ exports.signUp = catchAsync(async (req, res, next) => {
   const userWallet = StreamrClient.generateEthereumAccount()
   console.log(userWallet)
 
-  const streamr = new StreamrClient({
-    auth:{
-        privateKey: userWallet.privateKey
-    },
-    url: 'wss://hack.streamr.network/api/v1/ws',
-    restUrl: 'https://hack.streamr.network/api/v1',        
-  })
-  // console.log(streamr)
+  // const streamr = new StreamrClient({
+  //   auth:{
+  //       privateKey: userWallet.privateKey
+  //   },
+  //   url: 'wss://hack.streamr.network/api/v1/ws',
+  //   restUrl: 'https://hack.streamr.network/api/v1',        
+  // })
+  // // console.log(streamr)
 
-  streamr.joinDataUnion(process.env.DU_CONTRACT, process.env.SHARED_SECRET)
-  .then((memberDetails)=>{
-      console.log(memberDetails)
+  // streamr.joinDataUnion(process.env.DU_CONTRACT, process.env.SHARED_SECRET)
+  // .then((memberDetails)=>{
+  //     console.log(memberDetails)
 
-      streamr.getMemberStats(process.env.DU_CONTRACT, userWallet.address)
-          .then((stats) => {
-              console.log(stats);
-              uploadDataCoinsStats(newUser._id,stats)
-          })
-          .catch((err) => {
-              console.log(err.message);
-          })
-  })
-  .catch((err)=>{
-      console.log(err)
-  })
-  .finally(()=>{
-      streamr.publish(process.env.STREAM_ID_USER, { 
-          user:newUser
-      })
-      console.log("Data Published");
-  })
+  //     streamr.getMemberStats(process.env.DU_CONTRACT, userWallet.address)
+  //         .then((stats) => {
+  //             console.log(stats);
+  //             uploadDataCoinsStats(newUser._id,stats)
+  //         })
+  //         .catch((err) => {
+  //             console.log(err.message);
+  //         })
+  // })
+  // .catch((err)=>{
+  //     console.log(err)
+  // })
+  // .finally(()=>{
+  //     streamr.publish(process.env.STREAM_ID_USER, { 
+  //         user:newUser
+  //     })
+  //     console.log("Data Published");
+  // })
 
   res.redirect("/");
   // res.status(201).json({

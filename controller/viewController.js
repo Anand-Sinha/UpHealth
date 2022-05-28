@@ -1,6 +1,6 @@
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
-const StreamrClient = require('streamr-client')
+// const StreamrClient = require('streamr-client')
 
 exports.renderHomePage = catchAsync(async(req,res,next)=>{
     if(!req.cookies.jwt){
