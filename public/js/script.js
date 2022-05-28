@@ -96,3 +96,33 @@ var lightFlag = true;
       },100)
 
     });
+    // 0	age	0.321668
+    // 1	gender	0.022046
+    // 2	height	0.143443
+    // 3	weight	0.161850
+    // 4 	ap_hi	0.228123 
+    // 5	ap_lo	0.042572
+    // 6	cholesterol	0.030725
+    // 7	gluc	0.019934
+    // 8	smoke	0.009101
+    // 9	alco	0.006331
+    // 10	active	0.014208
+
+    function myFunction() {
+    
+      let val = [18393,2,168,62.0,110,80,1,1,0,0,1];
+      let arr = [0.321668,0.022046,0.143443,0.161850,0.228123,0.042572,0.030725,0.019934,0.009101,0.006331,0.014208];
+      let sum = 0;
+      for(let i=0;i<val.length;i++){
+        sum += arr[i]*val[i];
+      }
+      https://heartapi.herokuapp.com/predict?age=21&sex=1&cigs=5&chol=230&sBP=280&dia=0&dBP=90&gluc=87&hRate=84
+      fetch('https://heartapi.herokuapp.com/predict?age=21&sex=1&cigs=5&chol=230&sBP=280&dia=0&dBP=90&gluc=87&hRate=84')
+          .then(response =>{
+              return response.json();
+          }).then(data =>{
+              console.log(data);
+          })
+      console.log(sum);
+      document.getElementById("predict-yes").innerHTML = "Hello World";
+    }
