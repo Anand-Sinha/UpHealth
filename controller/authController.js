@@ -39,8 +39,8 @@ exports.signUp = catchAsync(async (req, res, next) => {
 
   const token = sendToken(newUser._id, res);
 
-  const userWallet = StreamrClient.generateEthereumAccount()
-  console.log(userWallet)
+  // const userWallet = StreamrClient.generateEthereumAccount()
+  // console.log(userWallet)
 
   // const streamr = new StreamrClient({
   //   auth:{
@@ -177,39 +177,39 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 exports.addFitnessRecords = catchAsync(async (req, res, next) => {
   // console.log(req.body)
-  const userWallet = StreamrClient.generateEthereumAccount()
-  console.log(userWallet)
+  // const userWallet = StreamrClient.generateEthereumAccount()
+  // console.log(userWallet)
 
-  const streamr = new StreamrClient({
-    auth:{
-        privateKey: userWallet.privateKey
-    },
-    url: 'wss://hack.streamr.network/api/v1/ws',
-    restUrl: 'https://hack.streamr.network/api/v1',        
-  })
-  // console.log(streamr)
+  // const streamr = new StreamrClient({
+  //   auth:{
+  //       privateKey: userWallet.privateKey
+  //   },
+  //   url: 'wss://hack.streamr.network/api/v1/ws',
+  //   restUrl: 'https://hack.streamr.network/api/v1',        
+  // })
+  // // console.log(streamr)
 
-  streamr.joinDataUnion(process.env.DU_CONTRACT, process.env.SHARED_SECRET)
-  .then((memberDetails)=>{
-      console.log(memberDetails)
+  // streamr.joinDataUnion(process.env.DU_CONTRACT, process.env.SHARED_SECRET)
+  // .then((memberDetails)=>{
+  //     console.log(memberDetails)
 
-      streamr.getMemberStats(process.env.DU_CONTRACT, userWallet.address)
-          .then((stats) => {
-              console.log(stats);
-              uploadDataCoinsStats(req.user._id,stats)
-          })
-          .catch((err) => {
-              console.log(err.message);
-          })
-  })
-  .catch((err)=>{
-      console.log(err)
-  })
-  .finally(()=>{
-      streamr.publish(process.env.STREAM_ID_FITNESS, { 
-          user:req.user._id,
-          data:req.body
-      })
-      console.log("Data Published");
-  })
+  //     streamr.getMemberStats(process.env.DU_CONTRACT, userWallet.address)
+  //         .then((stats) => {
+  //             console.log(stats);
+  //             uploadDataCoinsStats(req.user._id,stats)
+  //         })
+  //         .catch((err) => {
+  //             console.log(err.message);
+  //         })
+  // })
+  // .catch((err)=>{
+  //     console.log(err)
+  // })
+  // .finally(()=>{
+  //     streamr.publish(process.env.STREAM_ID_FITNESS, { 
+  //         user:req.user._id,
+  //         data:req.body
+  //     })
+  //     console.log("Data Published");
+  // })
 })
