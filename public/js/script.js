@@ -116,6 +116,7 @@ var lightFlag = true;
       for(let i=0;i<val.length;i++){
         sum += arr[i]*val[i];
       }
+      // https://github.com/agoel00/HeartDiseasePredictionAPI
       https://heartapi.herokuapp.com/predict?age=21&sex=1&cigs=5&chol=230&sBP=280&dia=0&dBP=90&gluc=87&hRate=84
       fetch('https://heartapi.herokuapp.com/predict?age=21&sex=1&cigs=5&chol=230&sBP=280&dia=0&dBP=90&gluc=87&hRate=84')
           .then(response =>{
