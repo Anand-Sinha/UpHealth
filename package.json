@@ -4,6 +4,7 @@
   "description": "Web app for hackathon",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anand Sinha, Anubhav Bansal, Sarthak Duggal",

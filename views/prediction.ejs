@@ -36,92 +36,78 @@
           Go Dark
         </div>
         <label><input id="checkbox" type="checkbox"><span class="checkB"></label>
-          <li class="navigationitem nav-item"><a href="/login"  id="data-union-tab" class="fontWhite navigationlink btn btn--green  btn--login blueBack" style="padding: 10px 12.5px 10px 5px; margin-left: 15px; text-align: center;"><i style="margin-right: 5px;"class="fas fa-coins"></i> Data Coins: 0</a></li>
+          <!-- <li class="navigationitem nav-item"><a href="/login"  id="data-union-tab" class="fontWhite navigationlink btn btn--green  btn--login blueBack" style="padding: 10px 12.5px 10px 5px; margin-left: 15px; text-align: center;"><i style="margin-right: 5px;"class="fas fa-coins"></i> Data Coins: 0</a></li> -->
 
         <li class="navigation__item nav-item"><a href="#aboutUs" class="fontWhite navigation__link">About Us</a></li>
         <li class="navigation__item nav-item"><a href="#keyFea" class="fontWhite navigation__link">Key features</a></li>
         <li class="navigation__item nav-item"><a href="/track" class="fontWhite navigation__link">Track Your Fitness</a></li>
+        <li class="navigation__item nav-item"><a href="/predict" class="fontWhite navigation__link">Get Diagnosed</a></li>
         <!-- <li class="navigation__item nav-item"><a href="/" class="fontWhite navigation__link btn btn--green  btn--login blueBack">Home</a></li> -->
-        <li class="navigation__item nav-item"><a id="logout" class="fontWhite navigation__link btn btn--green btn--signup blueBack">Logout</a></li>
+        <!-- <li class="navigation__item nav-item"><a id="logout" class="fontWhite navigation__link btn btn--green btn--signup blueBack">Logout</a></li> -->
       </ul>
     </div>
   </nav>
 
-  <section class="track">
-    <div class="track-box">
-      <form class="track-box-form track-form" id="track-form">
+  <section style="" class="track row">
+    <div class="track-box col-md-4">
+      <form class="track-box-form track-form" id="track-form" onsubmit="event.preventDefault(); myFunction();">
         <div class="row">
           <div class="col-md-6">
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-fat " placeholder="Fat%" id="fat" required>
-              <label for="fat" class="form__label form__label--track">Fat%</label>
+              <input type="number" class="form__input form__input--track  form__input--track-fat " placeholder="Age" id="age" required>
+              <label for="age" class="form__label form__label--track">Age</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-bmi" placeholder="BMI" id="bmi" required>
-              <label for="bmi" class="form__label form__label--track">BMI</label>
+              <input type="text" class="form__input form__input--track  form__input--track-bmi" placeholder="Gender M/F" id="gender" required>
+              <label for="gender" class="form__label form__label--track">Gender M/F</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-weight" placeholder="Weight Kg" id="weight" required>
-              <label for="weight" class="form__label form__label--track">Weight Kg</label>
+              <input type="text" class="form__input form__input--track  form__input--track-weight" placeholder="Do You Smoke Y/N" id="smoke" required>
+              <label for="smoke" class="form__label form__label--track">Do You Smoke Y/N</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-sugar" placeholder="Blood Sugar" id="sugar" required>
-              <label for="sugar" class="form__label form__label--track">Blood Sugar</label>
+              <input type="number" class="form__input form__input--track  form__input--track-sugar" placeholder="Cholesterol" id="chol" required>
+              <label for="chol" class="form__label form__label--track">Cholesterol</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-bp" placeholder="Blood Pressure" id="bp" required>
-              <label for="bp" class="form__label form__label--track">Blood Pressure</label>
+              <input type="number" class="form__input form__input--track  form__input--track-bp" placeholder="Blood Pressure High" id="bpH" required>
+              <label for="bpH" class="form__label form__label--track">Blood Pressure High</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-sugar" placeholder="Blood Sugar" id="sugara" required>
-              <label for="sugar" class="form__label form__label--track">Blood Sugar</label>
-            </div>
-            <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-bp" placeholder="Blood Pressure" id="bpa" required>
-              <label for="bp" class="form__label form__label--track">Blood Pressure</label>
+              <input style="background-color: #00e676; color: white;" type="submit" class="form__input form__input--track form__group form__group--btn btn btn--green" value="Submit" placeholder="Submit" id="sub" required>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-fat " placeholder="Fat%" id="fatb" required>
-              <label for="fat" class="form__label form__label--track">Fat%</label>
+              <input type="number" class="form__input form__input--track  form__input--track-fat " placeholder="Glucose Level" id="gluc" required>
+              <label for="gluc" class="form__label form__label--track">Glucose Level</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-bmi" placeholder="BMI" id="bmib" required>
-              <label for="bmi" class="form__label form__label--track">BMI</label>
+              <input type="text" class="form__input form__input--track  form__input--track-bmi" placeholder="Diabates Y/N" id="diab" required>
+              <label for="diab" class="form__label form__label--track">Diabates Y/N</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-weight" placeholder="Weight Kg" id="weightb" required>
-              <label for="weight" class="form__label form__label--track">Weight Kg</label>
+              <input type="number" class="form__input form__input--track  form__input--track-weight" placeholder="Resting Heart Rate" id="Hrate" required>
+              <label for="Hrate" class="form__label form__label--track">Resting Heart Rate</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-sugar" placeholder="Blood Sugar" id="sugarb" required>
-              <label for="sugar" class="form__label form__label--track">Blood Sugar</label>
+              <input type="text" class="form__input form__input--track  form__input--track-sugar" placeholder="Do You Drink Y/N" id="alco" required>
+              <label for="alco" class="form__label form__label--track">Do You Drink Y/N</label>
             </div>
             <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-bp" placeholder="Blood Pressure" id="bpb" required>
-              <label for="bp" class="form__label form__label--track">Blood Pressure</label>
-            </div>
-            <div class="form__group">
-              <input type="number" class="form__input form__input--track  form__input--track-sugar" placeholder="Blood Sugar" id="sugarc" required>
-              <label for="sugar" class="form__label form__label--track">Blood Sugar</label>
+              <input type="number" class="form__input form__input--track  form__input--track-sugar" placeholder="Blood Pressure Low" id="bpL" required>
+              <label for="bpL" class="form__label form__label--track">Blood Pressure Low</label>
             </div>
           </div>
         </div>
-
-        <div class="form__group form__group--btn">
-          <button  onclick="myFunction()" class="btn btn--green">Submit</button>
-        </div>
       </form>
     </div>
-
-    <div id="predict-yes">
-      YESS
+    <div class="col-md-6  predictionResult" id="predictionResult">
+      <img style="width: 70%; margin-top: -10%;" src="/img/diagnosis.png" alt="">
     </div>
-
-
-
-
+    <div class="col-md-6  predictionResult1" id="predictionResult1">
+      <h1 class="predictionText">We are <br /><span class="percentResult" id="percent"></span><br />sure that you <br /><span id="prediction"></span><br /> heart disease.</h1>
+    </div>
   </section>
   <div id="goToTop" class="gototop">
     <a href="mailto:uphealth@gmail.com"> <button class="btn btn-dange btn-sm toShow" type="button" name="button"> <i style="color:#777; font-size:50px;line-height:60px;" class="fas fa-envelope aaa"></i></button></a>

@@ -40,6 +40,22 @@
   margin: auto;
 
 }
+
+.predictionResult1{
+  margin-right: 6%;
+  margin-top: -2%;
+  display: none;
+}
+
+.predictionText{
+  text-align: center;
+  font-size: 6.5rem;
+}
+
+#percent, #prediction{
+ font-size: 8rem;
+}
+
 /* video{
 } */
 .second{
